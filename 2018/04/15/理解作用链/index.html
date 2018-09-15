@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js," />
 
 
 
@@ -81,17 +81,24 @@
 
 
 
-<meta name="description" content="IT">
-<meta name="keywords" content="前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小灰">
-<meta property="og:url" content="https://xiaohui.cloud/archives/2018/index.html">
+<meta name="description" content="#理解作用链的作用 1.函数在执行的过程中，先从自己内部找变量 2.如果找不到，再从创建当前函数所在的作用域去找, 以此往上 3.注意找的是变量的当前的状态 范例1234567891011121314var a = 1function fn1()&amp;#123;  function fn2()&amp;#123;    console.log(a)  &amp;#125;  function fn3()&amp;#123;">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解作用链">
+<meta property="og:url" content="https://xiaohui.cloud/2018/04/15/理解作用链/index.html">
 <meta property="og:site_name" content="小灰">
-<meta property="og:description" content="IT">
+<meta property="og:description" content="#理解作用链的作用 1.函数在执行的过程中，先从自己内部找变量 2.如果找不到，再从创建当前函数所在的作用域去找, 以此往上 3.注意找的是变量的当前的状态 范例1234567891011121314var a = 1function fn1()&amp;#123;  function fn2()&amp;#123;    console.log(a)  &amp;#125;  function fn3()&amp;#123;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10372596-0d65480d510f3ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10372596-1e49e56dcb3ec9ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10372596-36d8ce5dff28ea37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10372596-af487d5395844fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10372596-f9bc6a5eb42b4feb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-15T09:40:12.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小灰">
-<meta name="twitter:description" content="IT">
+<meta name="twitter:title" content="理解作用链">
+<meta name="twitter:description" content="#理解作用链的作用 1.函数在执行的过程中，先从自己内部找变量 2.如果找不到，再从创建当前函数所在的作用域去找, 以此往上 3.注意找的是变量的当前的状态 范例1234567891011121314var a = 1function fn1()&amp;#123;  function fn2()&amp;#123;    console.log(a)  &amp;#125;  function fn3()&amp;#123;">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10372596-0d65480d510f3ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -121,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://xiaohui.cloud/archives/2018/"/>
+  <link rel="canonical" href="https://xiaohui.cloud/2018/04/15/理解作用链/"/>
 
 
 
 
 
-  <title>归档 | 小灰</title>
+  <title>理解作用链 | 小灰</title>
   
 
 
@@ -156,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
 
@@ -370,592 +377,235 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xiaohui.cloud/2018/04/15/理解作用链/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaohui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/006JM2pKly1fv9626yznhj302s03v3yw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小灰">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">理解作用链</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T15:25:31+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 15 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/15/理解作用链/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/15/理解作用链/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/05/二叉树遍历/" itemprop="url">
-              
-                <span itemprop="name">二叉树遍历</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-05T15:40:36+08:00"
-              content="2018-06-05" >
-          06-05
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/05/排序算法/" itemprop="url">
-              
-                <span itemprop="name">排序算法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-05T15:40:36+08:00"
-              content="2018-05-05" >
-          05-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/01/继承/" itemprop="url">
-              
-                <span itemprop="name">继承</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-01T15:10:51+08:00"
-              content="2018-05-01" >
-          05-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/15/理解作用链/" itemprop="url">
-              
-                <span itemprop="name">理解作用链</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-15T15:25:31+08:00"
-              content="2018-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>#理解作用链的作用</p>
+<p>1.函数在执行的过程中，先从自己内部找变量</p>
+<p>2.如果找不到，再从创建当前函数所在的作用域去找, 以此往上</p>
+<p>3.注意找的是变量的当前的状态</p>
+<h2 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">function fn1()&#123;</span><br><span class="line">  function fn2()&#123;</span><br><span class="line">    console.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  function fn3()&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">4</span></span><br><span class="line">    fn2()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">2</span></span><br><span class="line">  return fn3</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> fn = fn1()</span><br><span class="line"><span class="function"><span class="title">fn</span><span class="params">()</span></span> <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<p>最后执行fn2函数，fn2找不到变量a,接着往上在找到创建当前fn2所在的作用域fn1中找到a=2;<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">function fn1()&#123;</span><br><span class="line">  function fn3()&#123;</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">4</span></span><br><span class="line">    fn2()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">2</span></span><br><span class="line">  return fn3</span><br><span class="line">&#125;</span><br><span class="line">function fn2()&#123;</span><br><span class="line">  console.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> fn = fn1()</span><br><span class="line"><span class="function"><span class="title">fn</span><span class="params">()</span></span> <span class="comment">//1</span></span><br></pre></td></tr></table></figure></p>
+<p>同上<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">1</span></span><br><span class="line">function fn1()&#123;</span><br><span class="line"></span><br><span class="line">  function fn3()&#123;</span><br><span class="line">    function fn2()&#123;</span><br><span class="line">      console.log(a)</span><br><span class="line">    &#125;</span><br><span class="line">    fn2()</span><br><span class="line">    <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">4</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">var</span> <span class="selector-tag">a</span> = <span class="number">2</span></span><br><span class="line">  return fn3</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> fn = fn1()</span><br><span class="line"><span class="function"><span class="title">fn</span><span class="params">()</span></span> <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>函数fn2在执行的过程中，先从自己内部找变量找不到，再从创建当前函数所在的作用域fn去找,注意此时变量声明前置，a已声明但未初始化为undefined;</p>
+<p>#理解作用链的原理：<br>前提：了解全局作用域，函数作用域，变量和函数的声明前置等基础；</p>
+<p>##函数的生命周期</p>
+<p>###函数的的生命周期分为创建和执行两个阶段。</p>
+<ul>
+<li>在函数创建阶段，JS解析引擎进行预解析，会将函数声明提前，同时将该函数放到全局作用域中或当前函数的上一级函数的局部作用域中。</li>
+</ul>
+<ul>
+<li><p>在函数执行阶段，JS引擎会将当前函数的局部变量和内部函数进行声明提前，然后再执行业务代码，当函数执行完退出时，释放该函数的执行上下文，并注销该函数的局部变量。<br>##变量对象（Variable Object）</p>
+</li>
+<li><p>VO对应的是函数创建阶段，JS解析引擎进行预解析时，所有的变量和函数的声明，统称为Variable Object。</p>
+</li>
+<li><p>该变量与执行上下文相关，知道自己的数据存储在哪里，并且知道如何访问。</p>
+</li>
+</ul>
+<p>##VO是一个与执行上下文相关的特殊对象，它存储着在上下文中声明的以下内容：</p>
+<ul>
+<li>变量 (var, 变量声明);</li>
+<li>函数声明 (FunctionDeclaration, 缩写为FD);</li>
+<li>函数的形参<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span><span class="params">(a,b)</span>&#123;</span></span><br><span class="line">	var <span class="built_in">sum</span> = a + b;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span>&#123;</span></span><br><span class="line">		alert(<span class="built_in">sum</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sum</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// sum,say,a,b 组合的对象就是VO</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>##AO（活动对象）</p>
+<ul>
+<li>对应的是函数执行阶段，当函数被调用执行时，会建立一个执行上下文，该执行上下文包含了函数所需的所有变量，该变量共同组成了一个新的对象就是Activetion Object。</li>
+</ul>
+<h2 id="该对象包含了："><a href="#该对象包含了：" class="headerlink" title="该对象包含了："></a>该对象包含了：</h2><ul>
+<li>函数的所有局部变量</li>
+<li>函数的所有命名参数</li>
+<li>函数的参数集合</li>
+<li>函数的this指向<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">unction add(a,b)&#123;</span><br><span class="line">	var <span class="built_in">sum</span> = a + b;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span>&#123;</span></span><br><span class="line">		alert(<span class="built_in">sum</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">sum</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line"><span class="comment">//  我用JS对象来表示AO</span></span><br><span class="line"><span class="comment">//  AO = &#123;</span></span><br><span class="line"><span class="comment">//	    this : window,</span></span><br><span class="line"><span class="comment">//	    arguments : [4,5],</span></span><br><span class="line"><span class="comment">//	    a : 4,</span></span><br><span class="line"><span class="comment">//	    b : 5,</span></span><br><span class="line"><span class="comment">//	    say : ,</span></span><br><span class="line"><span class="comment">//	    sum : undefined</span></span><br><span class="line"><span class="comment">//  &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h1><ul>
+<li><p>1.当代码在一个环境中执行时，会创建变量对象的一个作用域链（scope chain）来保证对执行环境有权访问的变量和函数的有序访问。</p>
+</li>
+<li><p>2.作用域第一个对象始终是当前执行代码所在环境的变量对象（VO），即在当前执行函数的作用域中寻找变量。</p>
+</li>
+<li><p>3.在函数运行过程中标识符的解析是沿着作用域链一级一级搜索的过程，从第一个对象开始，逐级向后回溯，直到找到同名标识符为止，找到后不再继续遍历，找不到就报错。</p>
+</li>
+</ul>
+<p>举例：<br><img src="https://upload-images.jianshu.io/upload_images/10372596-0d65480d510f3ac5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6.png"></p>
+<h3 id="1-预处理后，进入全局上下文"><a href="#1-预处理后，进入全局上下文" class="headerlink" title="1 预处理后，进入全局上下文"></a>1 预处理后，进入全局上下文</h3><p><img src="https://upload-images.jianshu.io/upload_images/10372596-1e49e56dcb3ec9ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></p>
+<h3 id="2-执行bar-函数"><a href="#2-执行bar-函数" class="headerlink" title="2 执行bar()函数"></a>2 执行bar()函数</h3><p><img src="https://upload-images.jianshu.io/upload_images/10372596-36d8ce5dff28ea37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></p>
+<h3 id="3-查找变量"><a href="#3-查找变量" class="headerlink" title="3 查找变量"></a>3 查找变量</h3><p><img src="https://upload-images.jianshu.io/upload_images/10372596-af487d5395844fd9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="9.png"></p>
+<h3 id="4-执行foo-函数"><a href="#4-执行foo-函数" class="headerlink" title="4 执行foo()函数"></a>4 执行foo()函数</h3><p><img src="https://upload-images.jianshu.io/upload_images/10372596-f9bc6a5eb42b4feb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="10.png"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/04/02/原型与原型链/" itemprop="url">
-              
-                <span itemprop="name">原型与原型链</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-02T15:25:31+08:00"
-              content="2018-04-02" >
-          04-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/25/web安全/" itemprop="url">
-              
-                <span itemprop="name">web安全</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-25T15:40:36+08:00"
-              content="2018-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/25/常用css选择器/" itemprop="url">
-              
-                <span itemprop="name">常用css选择器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-25T15:40:36+08:00"
-              content="2018-03-25" >
-          03-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/17/form表单/" itemprop="url">
-              
-                <span itemprop="name">form表单</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-17T15:40:36+08:00"
-              content="2018-03-17" >
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/14/事件循环：微任务 宏任务/" itemprop="url">
-              
-                <span itemprop="name">“事件循环：微任务 宏任务”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-14T15:25:31+08:00"
-              content="2018-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/09/面向对象/" itemprop="url">
-              
-                <span itemprop="name">面向对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-09T15:25:31+08:00"
-              content="2018-03-09" >
-          03-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/06/闭包与作用域/" itemprop="url">
-              
-                <span itemprop="name">闭包与作用域</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-06T15:25:31+08:00"
-              content="2018-03-06" >
-          03-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/05/“JS 类型隐式转换”/" itemprop="url">
-              
-                <span itemprop="name">“JS 类型隐式转换”</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-05T15:40:36+08:00"
-              content="2018-03-05" >
-          03-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/03/DOM动态集合/" itemprop="url">
-              
-                <span itemprop="name">DOM动态集合</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-03T15:05:49+08:00"
-              content="2018-02-03" >
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/03/从URL输入到页面展现/" itemprop="url">
-              
-                <span itemprop="name">从URL输入到页面展现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-03T15:05:49+08:00"
-              content="2018-02-03" >
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/01/hexo/" itemprop="url">
-              
-                <span itemprop="name">hexo</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-01T15:25:31+08:00"
-              content="2018-01-01" >
-          01-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/原型与原型链/" rel="next" title="原型与原型链">
+                <i class="fa fa-chevron-left"></i> 原型与原型链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/01/继承/" rel="prev" title="继承">
+                继承 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -963,6 +613,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/04/15/理解作用链/"
+           data-title="理解作用链" data-url="https://xiaohui.cloud/2018/04/15/理解作用链/">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -983,8 +644,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1085,6 +755,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#范例"><span class="nav-number">1.</span> <span class="nav-text">范例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#该对象包含了："><span class="nav-number">2.</span> <span class="nav-text">该对象包含了：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域链"><span class="nav-number"></span> <span class="nav-text">作用域链</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-预处理后，进入全局上下文"><span class="nav-number">0.1.</span> <span class="nav-text">1 预处理后，进入全局上下文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-执行bar-函数"><span class="nav-number">0.2.</span> <span class="nav-text">2 执行bar()函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查找变量"><span class="nav-number">0.3.</span> <span class="nav-text">3 查找变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-执行foo-函数"><span class="nav-number">0.4.</span> <span class="nav-text">4 执行foo()函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1227,6 +913,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
