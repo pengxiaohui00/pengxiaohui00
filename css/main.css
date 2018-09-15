@@ -186,8 +186,8 @@ th {
 body {
   position: relative;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: 14px;
-  line-height: 2;
+  font-size: 16px;
+  line-height: 1.8;
   color: #555;
   background: #f5f7f9;
 }
@@ -203,7 +203,7 @@ body {
 }
 @media (min-width: 1600px) {
   body {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 h1,
@@ -277,15 +277,15 @@ p {
   margin: 0 0 20px 0;
 }
 a {
-  color: #555;
+  color: #4682b4;
   text-decoration: none;
   outline: none;
   border-bottom: 1px solid #999;
   word-wrap: break-word;
 }
 a:hover {
-  color: #222;
-  border-bottom-color: #222;
+  color: #36648b;
+  border-bottom-color: #36648b;
 }
 blockquote {
   margin: 0;
@@ -445,7 +445,7 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 810px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
@@ -457,7 +457,7 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 810px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
@@ -474,7 +474,7 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 810px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
@@ -921,7 +921,7 @@ pre .javascript .function {
 }
 .post-body .tabs ul.nav-tabs li.tab.active a {
   cursor: default;
-  color: #555;
+  color: #4682b4;
 }
 .post-body .tabs .tab-content {
   background-color: #fff;
@@ -1238,7 +1238,7 @@ pre .javascript .function {
 .post-body .figure .caption {
   margin: -20px auto 15px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #999;
   font-weight: bold;
   line-height: 1;
@@ -1270,7 +1270,7 @@ pre .javascript .function {
 .posts-expand {
   padding-top: 40px;
 }
-@media (max-width: 767px) {
+@media (max-width: 1080px) {
   .posts-expand {
     margin: 0 20px;
   }
@@ -1578,11 +1578,11 @@ pre .javascript .function {
   display: block;
   line-height: 25px;
   font-size: 14px;
-  color: #555;
+  color: #4682b4;
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #222;
+  color: #36648b;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1935,7 +1935,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #14cb29;
+  background: #5bff2d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2711,7 +2711,7 @@ img:hover {
 .header {
   position: relative;
   margin: 0 auto;
-  width: 960px;
+  width: 1080px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .header {
@@ -2771,7 +2771,7 @@ img:hover {
   }
 }
 .container .main-inner {
-  width: 960px;
+  width: 1080px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container .main-inner {
@@ -2787,7 +2787,7 @@ img:hover {
   float: right;
   box-sizing: border-box;
   padding: 40px;
-  width: 700px;
+  width: 810px;
   background: #fff;
   min-height: 700px;
   box-shadow: initial;
@@ -2830,7 +2830,7 @@ img:hover {
   display: none;
 }
 .footer-inner {
-  width: 960px;
+  width: 1080px;
   padding-left: 260px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -3102,4 +3102,10 @@ img:hover {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("https://source.unsplash.com/random/1600x900");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
 }
