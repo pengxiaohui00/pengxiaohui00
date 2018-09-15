@@ -510,7 +510,7 @@
 <p>所以对于没有指定PreferredType类型时，先进行valueOf方法转换更好，故将PreferredType设置为Number类型。</p>
 <p>而对于Date类型，其进行valueOf转换为毫秒数的number类型。在进行隐式转换时，没有指定将其转换为number类型时，将其转换为那么大的number类型的值显然没有多大意义。（不管是在+运算符还是==运算符）还不如转换为字符串格式的日期，所以默认Date类型会优先进行toString转换。故有以上的规则：</p>
 <p>PreferredType没有设置时，Date类型的对象，PreferredType默认设置为String，其他类型对象PreferredType默认设置为Number。</p>
-<p>##2.2、通过To Number将值转换为数字<br><img src="https://upload-images.jianshu.io/upload_images/10372596-d428663fe9356a63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="28.png"><br>注意：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'12a'</span>==<span class="number">12</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>##2.2、通过To Number将值转换为数字<br><img src="https://upload-images.jianshu.io/upload_images/10372596-d428663fe9356a63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="28.png"><br>注意：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'12a'</span>==12</span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
 <p>#2.3、通过ToString将值转换为字符串<br>根据参数类型进行下面转换：<br>undefined ’undefined’<br>null ’null’<br>布尔值转换为’true’ 或 ‘false’<br>数字转换字符串，比如：1.765转为’1.765’<br>对象(obj)先进行 ToPrimitive(obj, String)转换得到原始值，在进行ToString转换为字符串<br>讲了这么多，是不是还不是很清晰，先来看看一个例子：<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">(</span><span class="template-variable">&#123;&#125;</span><span class="xml"> + </span><span class="template-variable">&#123;&#125;</span><span class="xml">)</span></span><br><span class="line"><span class="xml">//[object Object]</span></span><br></pre></td></tr></table></figure></p>
 <p>两个对象的值进行+运算符，肯定要先进行隐式转换为原始类型才能进行计算。<br>1、进行ToPrimitive转换，由于没有指定PreferredType类型，{}会使默认值为Number，进行ToPrimitive(input, Number)运算。<br>2、所以会执行valueOf方法，({}).valueOf(),返回的还是{}对象，不是原始值。<br>3、继续执行toString方法，({}).toString(),返回”[object Object]”，是原始值。<br>故得到最终的结果，”[object Object]” + “[object Object]” = “[object Object][object Object]”</p>
 <p>再来一个指定类型的例子：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> * &#123;&#125;</span><br><span class="line"> <span class="comment">//NaN</span></span><br></pre></td></tr></table></figure></p>
@@ -578,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/03/DOM动态集合/" rel="next" title="DOM动态集合">
-                <i class="fa fa-chevron-left"></i> DOM动态集合
+              <a href="/2018/02/03/从URL输入到页面展现/" rel="next" title="从URL输入到页面展现">
+                <i class="fa fa-chevron-left"></i> 从URL输入到页面展现
               </a>
             
           </div>
